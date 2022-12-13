@@ -1,5 +1,5 @@
 package deliveryteaminkotlin
 
-class Dev(name: String) {
+class Dev(name: String): Member(name) {
 
 }

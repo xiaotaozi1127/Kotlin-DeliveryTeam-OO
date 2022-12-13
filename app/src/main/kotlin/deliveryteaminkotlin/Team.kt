@@ -1,12 +1,12 @@
 package deliveryteaminkotlin
 
 class Team {
-    private var members: MutableList<Dev> = mutableListOf()
-    fun assignMember(dev: Dev) {
-        members.add(dev)
+    private var members: MutableList<Member> = mutableListOf()
+    fun assignMember(member: Member) {
+        members.add(member)
     }
 
-    fun getAllMembers(): List<Dev> {
+    fun getAllMembers(): List<Member> {
         return members
     }
 }

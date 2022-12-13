@@ -11,9 +11,11 @@ class TeamTest {
         val team = Team()
 
         team.assignMember(Dev("yanmin"))
+        team.assignMember(BA("xixi"))
+        team.assignMember(QA("shanshan"))
         val allMembers = team.getAllMembers()
 
-        assertEquals(1, allMembers.size)
+        assertEquals(3, allMembers.size)
 
     }
 }
