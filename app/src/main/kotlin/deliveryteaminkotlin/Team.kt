@@ -5,6 +5,7 @@ class Team {
     private var stories: MutableList<Story> = mutableListOf()
     fun assignMember(member: Member) {
         members.add(member)
+        member.team = this
     }
 
     fun getAllMembers(): List<Member> {
