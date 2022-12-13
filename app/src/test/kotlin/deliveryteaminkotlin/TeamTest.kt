@@ -26,4 +26,24 @@ class TeamTest {
 
         assertEquals(1, allStories.size)
     }
+
+    @Test fun should_get_members_by_lambda_filter() {
+        val team = Team()
+
+        team.assignMember(Dev("yanmin"))
+        team.assignMember(BA("xixi"))
+        team.assignMember(QA("shanshan"))
+
+        val filterDev = team.getMembers {it is Dev}
+        assertEquals("yanmin", filterDev[0].name)
+
+        val filterBA = team.getMembers { it is BA }
+        assertEquals("xixi", filterBA[0].name)
+
+        val filterQA = team.getMembers { it is QA }
+        assertEquals("shanshan", filterQA[0].name)
+
+        val filterByName = team.getMembers { it.name.contains("a") }
+        assertEquals(2, filterByName.size)
+    }
 }

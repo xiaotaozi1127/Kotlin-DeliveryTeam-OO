@@ -18,4 +18,8 @@ class Team {
     fun getAllStories(): List<Story> {
         return stories
     }
+
+    fun getMembers(lambda: (Member) -> Boolean): List<Member> {
+        return members.filter { lambda(it) }
+    }
 }

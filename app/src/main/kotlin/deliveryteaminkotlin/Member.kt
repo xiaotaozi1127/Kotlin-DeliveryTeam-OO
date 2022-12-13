@@ -1,5 +1,4 @@
 package deliveryteaminkotlin
 
-open class Member(name: String) {
-
+open class Member(val name: String) {
 }
