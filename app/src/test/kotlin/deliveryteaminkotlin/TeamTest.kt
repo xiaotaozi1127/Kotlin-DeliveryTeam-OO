@@ -16,6 +16,14 @@ class TeamTest {
         val allMembers = team.getAllMembers()
 
         assertEquals(3, allMembers.size)
+    }
 
+    @Test fun should_assign_stories_to_team() {
+        val team = Team()
+
+        team.assignStory(Story("fix bug"))
+        val allStories = team.getAllStories()
+
+        assertEquals(1, allStories.size)
     }
 }
