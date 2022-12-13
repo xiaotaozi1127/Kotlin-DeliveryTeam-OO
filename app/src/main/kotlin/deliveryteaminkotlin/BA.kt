@@ -6,11 +6,11 @@ class BA(name: String): Member(name) {
     override fun work() {
         if (team == null) return
 
-        val stories = team!!.getAllStories().filter { it.status == StoryStatus.BACKLOG }.subList(0, 3)
+        val stories = team!!.getAllStories().filter { it.status == StoryStatus.BACKLOG }.take(3)
         stories.forEach { it.status = StoryStatus.READY_FOR_DEV }
 
         val readyForDevStories = team!!.getAllStories().filter { it.status == StoryStatus.READY_FOR_DEV }
-        val devs = team!!.getMembers { it is Dev }
+        val devs = team!!.getMembers { it is Dev && it.assignedStory == null }
         if (readyForDevStories.isEmpty() || devs.isEmpty()) return
 
         val count: Int = min(readyForDevStories.size, devs.size)
