@@ -9,41 +9,33 @@ import org.junit.jupiter.api.Test
 class TeamTest {
     @Test fun should_assign_members_to_team() {
         val team = Team()
+        team.apply {
+            assignMember(Dev("yanmin"))
+            assignMember(BA("xixi"))
+            assignMember(QA("shanshan"))
+        }
 
-        team.assignMember(Dev("yanmin"))
-        team.assignMember(BA("xixi"))
-        team.assignMember(QA("shanshan"))
-        val allMembers = team.getAllMembers()
-
-        assertEquals(3, allMembers.size)
+        assertEquals(3, team.getAllMembers().size)
     }
 
     @Test fun should_assign_stories_to_team() {
         val team = Team()
-
         team.assignStory(Story("fix bug"))
-        val allStories = team.getAllStories()
 
-        assertEquals(1, allStories.size)
+        assertEquals(1, team.getAllStories().size)
     }
 
     @Test fun should_get_members_by_lambda_filter() {
         val team = Team()
+        team.apply {
+            assignMember(Dev("yanmin"))
+            assignMember(BA("xixi"))
+            assignMember(QA("shanshan"))
+        }
 
-        team.assignMember(Dev("yanmin"))
-        team.assignMember(BA("xixi"))
-        team.assignMember(QA("shanshan"))
-
-        val filterDev = team.getMembers {it is Dev}
-        assertEquals("yanmin", filterDev[0].name)
-
-        val filterBA = team.getMembers { it is BA }
-        assertEquals("xixi", filterBA[0].name)
-
-        val filterQA = team.getMembers { it is QA }
-        assertEquals("shanshan", filterQA[0].name)
-
-        val filterByName = team.getMembers { it.name.contains("a") }
-        assertEquals(2, filterByName.size)
+        assertEquals("yanmin", team.getMembers {it is Dev}[0].name)
+        assertEquals("xixi", team.getMembers { it is BA }[0].name)
+        assertEquals("shanshan", team.getMembers { it is QA }[0].name)
+        assertEquals(2, team.getMembers { it.name.contains("a") }.size)
     }
 }

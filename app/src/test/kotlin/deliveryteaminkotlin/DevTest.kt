@@ -9,10 +9,12 @@ class DevTest {
         val team = Team()
         val ba = BA("xixi")
         val dev = Dev("yanmin")
-        team.assignMember(ba)
-        team.assignMember(dev)
         val story = Story("fix bug")
-        team.assignStory(story)
+        team.apply {
+            assignMember(ba)
+            assignMember(dev)
+            assignStory(story)
+        }
 
         ba.work()
         dev.work()

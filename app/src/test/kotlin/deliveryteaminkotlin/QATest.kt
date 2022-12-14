@@ -10,11 +10,13 @@ class QATest {
         val ba = BA("xixi")
         val dev = Dev("yanmin")
         val qa = QA("shanshan")
-        team.assignMember(ba)
-        team.assignMember(dev)
-        team.assignMember(qa)
         val story = Story("fix bug")
-        team.assignStory(story)
+        team.apply {
+            assignMember(ba)
+            assignMember(dev)
+            assignMember(qa)
+            assignStory(story)
+        }
 
         ba.work()
         dev.work()
@@ -30,17 +32,20 @@ class QATest {
         val yunlong = Dev("yunlong")
         val haotian = Dev("haotian")
         val qa = QA("shanshan")
-        team.assignMember(ba)
-        team.assignMember(yanmin)
-        team.assignMember(yunlong)
-        team.assignMember(haotian)
-        team.assignMember(qa)
         val story1 = Story("story1")
         val story2 = Story("story2")
         val story3 = Story("story3")
-        team.assignStory(story1)
-        team.assignStory(story2)
-        team.assignStory(story3)
+
+        team.apply {
+            assignMember(ba)
+            assignMember(yanmin)
+            assignMember(yunlong)
+            assignMember(haotian)
+            assignMember(qa)
+            assignStory(story1)
+            assignStory(story2)
+            assignStory(story3)
+        }
 
         ba.work()
         yanmin.work()
