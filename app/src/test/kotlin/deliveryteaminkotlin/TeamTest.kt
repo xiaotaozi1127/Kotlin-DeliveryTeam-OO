@@ -15,14 +15,14 @@ class TeamTest {
             assignMember(QA("shanshan"))
         }
 
-        assertEquals(3, team.getAllMembers().size)
+        assertEquals(3, team.members.size)
     }
 
     @Test fun should_assign_stories_to_team() {
         val team = Team()
         team.assignStory(Story("fix bug"))
 
-        assertEquals(1, team.getAllStories().size)
+        assertEquals(1, team.stories.size)
     }
 
     @Test fun should_get_members_by_lambda_filter() {

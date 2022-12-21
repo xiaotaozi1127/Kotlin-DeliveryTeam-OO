@@ -1,23 +1,18 @@
 package deliveryteaminkotlin
 
 class Team(name: String = "tiangong") {
-    private var members: MutableList<Member> = mutableListOf()
-    private var stories: MutableList<Story> = mutableListOf()
+    var members: MutableList<Member> = mutableListOf()
+    private set
+    var stories: MutableList<Story> = mutableListOf()
+    private set
+
     fun assignMember(member: Member) {
         members.add(member)
         member.team = this
     }
 
-    fun getAllMembers(): List<Member> {
-        return members
-    }
-
     fun assignStory(story: Story) {
         stories.add(story)
-    }
-
-    fun getAllStories(): List<Story> {
-        return stories
     }
 
     fun getMembers(lambda: (Member) -> Boolean): List<Member> {
