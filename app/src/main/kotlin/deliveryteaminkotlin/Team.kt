@@ -1,6 +1,6 @@
 package deliveryteaminkotlin
 
-class Team(name: String = "tiangong") {
+class Team(name: String = "myteam") {
     var members: MutableList<Member> = mutableListOf()
     private set
     var stories: MutableList<Story> = mutableListOf()
