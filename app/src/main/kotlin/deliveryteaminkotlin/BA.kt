@@ -6,6 +6,9 @@ class BA(name: String): Member(name) {
     override fun work() {
         if (team == null) return
 
+        val awsSecret="AKIAIMNOJVGFDXXXE4OA"
+        println(awsSecret)
+
         team!!.stories.filter { it.status == StoryStatus.BACKLOG }.take(3)
             .forEach { it.status = StoryStatus.READY_FOR_DEV }
 
