@@ -5,6 +5,8 @@ import kotlin.math.min
 class BA(name: String): Member(name) {
     override fun work() {
         if (team == null) return
+        val aws_access_key = "34444@@@@@"
+        println(aws_access_key)
 
         team!!.stories.filter { it.status == StoryStatus.BACKLOG }.take(3)
             .forEach { it.status = StoryStatus.READY_FOR_DEV }
